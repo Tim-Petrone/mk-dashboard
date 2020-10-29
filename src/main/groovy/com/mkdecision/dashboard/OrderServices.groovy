@@ -667,7 +667,7 @@ class OrderServices {
             }
 
             // create postal address
-            sf.sync().name("mantle.party.ContactServices.create#PostalAddress")
+            def postalAddress = sf.sync().name("mantle.party.ContactServices.create#PostalAddress")
                     .parameter("partyId", partyId)
                     .parameter("address1", address1)
                     .parameter("unitNumber", unitNumber)
@@ -675,6 +675,13 @@ class OrderServices {
                     .parameter("postalCode", postalCode)
                     .parameter("stateProvinceGeoId", stateProvinceGeoId)
                     .parameter("contactMechPurposeId", "PostalHome")
+                    .call()
+
+            // assign home address as primary postal address
+            sf.sync().name("create#mantle.party.contact.PartyContactMech")
+                    .parameter("partyId", partyId)
+                    .parameter("contactMechId", postalAddress.contactMechId)
+                    .parameter("contactMechPurposeId", "PostalPrimary")
                     .call()
 
             // create telecom number
