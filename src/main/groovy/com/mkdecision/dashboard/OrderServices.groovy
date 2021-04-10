@@ -659,12 +659,6 @@ class OrderServices {
             return
         }
 
-        // validate marital status
-        if (StringUtils.isBlank(maritalStatusEnumId)) {
-            mf.addError(lf.localize("DASHBOARD_INVALID_MARITAL_STATUS"))
-            return
-        }
-
         // validate contact number
         if (StringUtils.isBlank(contactNumber)) {
             mf.addError(lf.localize("DASHBOARD_INVALID_PHONE_NUMBER"))

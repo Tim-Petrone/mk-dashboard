@@ -149,7 +149,6 @@
             <parameter name="addressMonths" type="Integer"/>
             <parameter name="socialSecurityNumber"/>
             <parameter name="birthDate" type="Date" format="MM-dd-yyyy"/>
-            <parameter name="maritalStatusEnumId"/>
             <parameter name="contactNumber"/>
             <parameter name="contactMechPurposeId"/>
             <parameter name="email"/>
@@ -195,7 +194,6 @@
                 <matches regexp="^\d{3}-\d{2}-\d{4}$" message="Please enter a valid social security number."/>
             </parameter>
             <parameter name="birthDate" type="Date" format="MM-dd-yyyy" required="true"/>
-            <parameter name="maritalStatusEnumId" required="true"/>
             <parameter name="contactNumber" required="true">
                 <matches regexp="^[0,2-9]{1}\d{2}([-])\d{3}([-])\d{4}" message="Please enter a valid phone number"/>
             </parameter>
